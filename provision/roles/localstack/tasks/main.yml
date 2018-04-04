@@ -1,0 +1,7 @@
+- name: install LocalStack
+  git:
+    repo: 'https://github.com/atlassian/localstack.git'
+    dest: /opt/localstack
+    update: no
+
+- script: /usr/local/bin/docker-compose -f /opt/localstack/docker-compose.yml up -d

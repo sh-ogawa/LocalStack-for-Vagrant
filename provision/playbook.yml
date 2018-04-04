@@ -1,0 +1,9 @@
+---
+- name: LocalStackを構築する
+  hosts: all
+  become: true
+  roles:
+    - docker
+    - docker-compose
+    - git
+    - localstack
