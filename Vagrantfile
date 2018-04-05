@@ -7,10 +7,10 @@
 # you're doing.
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "centos7.2"
+  config.vm.box = "mvbcoding/awslinux"
   
   
-  config.vm.define :master01 do |node|
+  config.vm.define :master do |node|
     node.vm.network :private_network, ip:"192.168.20.19"
     node.vm.hostname = "aws-mock"
   end
@@ -25,4 +25,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", run: "always" do |s|
     s.inline = "sudo /usr/local/bin/docker-compose -f /opt/localstack/docker-compose.yml start"
   end
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = 2
+    vb.memory = 3072
+  end
+
 end

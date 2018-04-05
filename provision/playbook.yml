@@ -3,7 +3,7 @@
   hosts: all
   become: true
   roles:
-    - docker
+    - docker-for-ami
     - docker-compose
     - git
     - localstack

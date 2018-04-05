@@ -14,8 +14,7 @@
     chdir: "/etc/yum.repos.d"
     creates: docker-ce.repo
 - name: install docker
-  #specific docker version and get docker-ce-selinux. but yum install docker-ce-selinux get docker-ce-latest, so add option --setopt=obsoletes=0
-  shell: "yum install -y --setopt=obsoletes=0 docker-ce-17.03.1.ce-1.el7.centos docker-ce-selinux-17.03.1.ce-1.el7.centos"
+  yum: name=docker-ce state=present
 - name: enable service docker
   systemd:
     name: docker
