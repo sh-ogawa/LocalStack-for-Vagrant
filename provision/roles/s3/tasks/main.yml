@@ -1,0 +1,2 @@
+- name: setup s3 bucket
+  script: s3-sample.sh

@@ -1,0 +1,6 @@
+---
+- name: LocalStackを構築する
+  hosts: all
+  become: true
+  roles:
+    - s3

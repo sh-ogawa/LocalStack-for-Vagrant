@@ -9,7 +9,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "mvbcoding/awslinux"
   
-  
   config.vm.define :master do |node|
     node.vm.network :private_network, ip:"192.168.20.19"
     node.vm.hostname = "aws-mock"
@@ -20,10 +19,16 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "playbook.yml"
     ansible.verbose = true
     ansible.install = true
-    ansible.limit = "all" # or only "nodes" group, etc.
+    ansible.limit = "all"
   end
   config.vm.provision "shell", run: "always" do |s|
     s.inline = "sudo /usr/local/bin/docker-compose -f /opt/localstack/docker-compose.yml start"
+  end
+  config.vm.provision "ansible_local", run: "always" do |ansible|
+    ansible.provisioning_path = "/vagrant/provision"
+    ansible.playbook = "setup-localstack.yml"
+    ansible.verbose = true
+    ansible.limit = "all"
   end
 
   config.vm.provider "virtualbox" do |vb|
