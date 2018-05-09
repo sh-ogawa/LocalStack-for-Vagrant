@@ -4,3 +4,5 @@
   become: true
   roles:
     - s3
+    - sqs
+    - s3-sqs

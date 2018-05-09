@@ -1,0 +1,2 @@
+- name: setup sqs
+  script: sqs-sample.sh

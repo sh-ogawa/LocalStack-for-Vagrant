@@ -1,0 +1,3 @@
+- name: setup s3-sqs cooperation
+
+  script: s3-sqs-sample.sh
