@@ -1,6 +1,6 @@
 - name: install LocalStack
   git:
-    repo: 'https://github.com/atlassian/localstack.git'
+    repo: 'https://github.com/localstack/localstack.git'
     dest: /opt/localstack
     update: no
 
