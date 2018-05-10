@@ -1,2 +1,6 @@
 - name: setup s3 bucket
-  script: s3-sample.sh
+  aws_s3:
+    rgw: true
+    s3_url: "http://localhost:4572"
+    bucket: "local-test-bucket"
+    mode: create
