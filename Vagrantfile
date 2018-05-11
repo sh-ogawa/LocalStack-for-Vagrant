@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     ansible.limit = "all"
   end
   config.vm.provision "shell", run: "always" do |s|
-    s.inline = "sudo /usr/local/bin/docker-compose -f /opt/localstack/docker-compose.yml start"
+    s.path  = "provision/service-start.sh"
   end
   config.vm.provision "ansible_local", run: "always" do |ansible|
     ansible.provisioning_path = "/vagrant/provision"
