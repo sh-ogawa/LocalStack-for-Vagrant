@@ -2,5 +2,5 @@
   aws_s3:
     rgw: true
     s3_url: "http://localhost:4572"
-    bucket: "local-test-bucket"
+    bucket: "test"
     mode: create

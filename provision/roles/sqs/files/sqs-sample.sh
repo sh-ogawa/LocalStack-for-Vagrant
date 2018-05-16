@@ -9,10 +9,10 @@ SQS_QUEUE_URL=$( \
 
 SQS_POLICY='{
  "Version": "2008-10-17",
- "Id": "test-queue",
+ "Id": "test",
  "Statement": [
   {
-   "Sid": "test-queue-ID",
+   "Sid": "test",
    "Effect": "Allow",
    "Principal": {
     "AWS":"*"  
@@ -20,10 +20,10 @@ SQS_POLICY='{
    "Action": [
     "SQS:SendMessage"
    ],
-   "Resource": "arn:aws:sqs:elasticmq:000000000000:test",
+   "Resource": "http://localhost:4576/queue/test",
    "Condition": {
       "ArnLike": {          
-      "aws:SourceArn": "arn:aws:s3:*:*:local-test-bucket"    
+      "aws:SourceArn": "arn:aws:s3:*:*:test"    
     }
    }
   }
