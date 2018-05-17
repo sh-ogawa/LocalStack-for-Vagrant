@@ -32,7 +32,7 @@ SQS_POLICY='{
 SQS_POLICY_ESCAPED=$(echo $SQS_POLICY | perl -pe 's/"/\\"/g')
 SQS_POLICY_ATTRIBUTES='{"Policy":"'$SQS_POLICY_ESCAPED'"}'
 
-# policyÇê›íËÇ∑ÇÈ
+# policy„ÇíË®≠ÂÆö„Åô„Çã
 aws --endpoint-url=http://localhost:4576 sqs set-queue-attributes \
   --queue-url ${SQS_QUEUE_URL} \
   --attributes "$SQS_POLICY_ATTRIBUTES"
