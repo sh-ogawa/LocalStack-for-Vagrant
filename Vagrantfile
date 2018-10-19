@@ -24,11 +24,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", run: "always" do |s|
     s.path  = "provision/service-start.sh"
   end
-  config.vm.provision "ansible_local", run: "always" do |ansible|
-    ansible.provisioning_path = "/vagrant/provision"
-    ansible.playbook = "setup-localstack.yml"
-    ansible.verbose = true
-    ansible.limit = "all"
+  config.vm.provision "ansible_local", run: "always" do |a|
+    a.provisioning_path = "/vagrant/provision"
+    a.playbook = "setup-localstack.yml"
+    a.verbose = true
+    a.limit = "all"
   end
 
   config.vm.provider "virtualbox" do |vb|
